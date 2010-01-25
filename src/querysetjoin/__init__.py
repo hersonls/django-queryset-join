@@ -22,12 +22,20 @@ class QuerySetJoin(object):
             data[-1] = "...(remaining elements truncated)..."
         return repr(data)
 
+    def __getitem__(self, ndx):
+        """Return an item or slice from the junction of QuerySets
+        """
+        if type(ndx) is slice:
+            return list(islice(self._all(), ndx.start, ndx.stop, ndx.step or 1))
+        else:
+            return islice(self._all(), ndx, ndx+1).next()
+
     def _all(self):
         """Iterates records in all subquerysets"""
         return chain(*self.querysets)
-    
+
     def _clone(self):
-        """Returns a clone of this queryset chain
+        """Returns a clone of this querysets joined
         """
         return self.__class__(*self.querysets)
 
@@ -54,15 +62,6 @@ class QuerySetJoin(object):
 
         self.order = {"reverse": reverse, "key": attrgetter(field)}
         return sorted(self._all(), **self.order)
-
-    def __getitem__(self, ndx):
-        """Return an item or slice from the junction of QuerySets
-        """
-        if type(ndx) is slice:
-            return list(islice(self._all(), ndx.start, ndx.stop, ndx.step or 1))
-        else:
-            return islice(self._all(), ndx, ndx+1).next()
-
 
     def all(self):
         """Return all itens from the junction of QuerySets
