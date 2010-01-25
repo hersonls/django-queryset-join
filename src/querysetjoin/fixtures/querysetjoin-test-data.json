@@ -1,0 +1,32 @@
+[{
+  "model": "querysetjoin.modelone",
+  "pk": 1,
+  "fields": {
+    "name": "Hersonls",
+    "work": "My Home"
+  }
+},
+{
+  "model": "querysetjoin.modelone",
+  "pk": 2,
+  "fields": {
+    "name": "Tomas",
+    "work": "INGG Ideias Web"
+  }
+},
+{
+  "model": "querysetjoin.modeltwo",
+  "pk": 1,
+  "fields": {
+    "name": "A: test case model two",
+    "school": "Brazil School"
+  }
+},
+{
+  "model": "querysetjoin.modeltwo",
+  "pk": 2,
+  "fields": {
+    "name": "B: test case model two",
+    "school": "EUA School"
+  }
+}]
