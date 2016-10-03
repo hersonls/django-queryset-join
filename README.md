@@ -1,5 +1,4 @@
-django-queryset-join
-====================
+# django-queryset-join
 
 Django queryset join is a simple way to join QuerySets of different models and
 manipulates them.
@@ -7,8 +6,7 @@ manipulates them.
 Ideas, modifications, patches are welcome:
 http://github.com/hersonls/django-queryset-join
 
-Usage
------
+## Usage
 
 To join QuerySets of different models is very simple just instantiating the
 class querysetjoin.QuerySetJoin passing as parameters the threads QuerySets
@@ -16,11 +14,11 @@ desired.
 
 Available methods are:
 
-.. function:: all()
+* function:: all()
 
    Return all itens from the junction of QuerySets
 
-.. function:: order(field)
+* function:: order(field)
 
    Return all items from the junction of QuerySets ordered by field passed as
    parameter. Currently it is possible to order by only one field. By default
@@ -30,6 +28,7 @@ Available methods are:
 
 Example below:
 
+```python
     >>> from querysetjoin import QuerySetJoin
     >>> from models import ModelOne, ModelTwo
     >>>
@@ -61,9 +60,9 @@ Example below:
     Hersonls
     B: test case model two
     A: test case model two
+```
 
-To-Do
-=====
+## To-Do
 
 Following is the list of features to be added:
 
